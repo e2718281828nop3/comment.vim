@@ -9,6 +9,9 @@ let g:loaded_comment = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+"TODO comment#switch()
+"a:firstline, a:lastlineが取れるようになったらrangeと共にそっちを使う
+"visual modeだけでなくnormal modeの.,.+5call COMMANDもそれでいける
 function! comment#switch(method, mode)
     let l:first_expr = a:mode == 'n' ? '.' : "'<"
     let l:last_expr = a:mode == 'n' ? '.' : "'>"
