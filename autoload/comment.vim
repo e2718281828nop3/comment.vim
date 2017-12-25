@@ -41,10 +41,6 @@ function! comment#in(mode)
   call comment#switch('in', a:mode)
 endfunction
 
-command! -range -nargs=+ Comment call comment#switch(<f-args>)
-command! -range -nargs=1 CommentOut call comment#out(<f-args>)
-command! -range -nargs=1 CommentIn call comment#in(<f-args>)
-
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
