@@ -13,6 +13,8 @@ let b:comment_char = ''
 
 augroup comment
     autocmd!
+    autocmd FileType sh let b:comment_char = '#'
+    autocmd FileType zsh let b:comment_char = '#'
     autocmd FileType vim let b:comment_char = '"'
     autocmd FileType ruby let b:comment_char = '#'
     autocmd FileType javascript let b:comment_char = '//'
