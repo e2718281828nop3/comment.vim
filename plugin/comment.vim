@@ -10,12 +10,12 @@ set cpo&vim
 
 augroup comment
     autocmd!
-    autocmd FileType vim let b:comment_out_line = '"'
-    autocmd FileType ruby let b:comment_out_line = '#'
-    autocmd FileType javascript let b:comment_out_line = '//'
+    autocmd FileType vim let b:comment_char = '"'
+    autocmd FileType ruby let b:comment_char = '#'
+    autocmd FileType javascript let b:comment_char = '//'
 augroup END
 
-command! -range -nargs=+ Comment call comment#switch(<f-args>)
+command! -range -nargs=+ Comment call comment#toggle(<f-args>)
 command! -range -nargs=1 CommentOut call comment#out(<f-args>)
 command! -range -nargs=1 CommentIn call comment#in(<f-args>)
 
