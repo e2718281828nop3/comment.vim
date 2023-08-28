@@ -13,6 +13,11 @@ set cpo&vim
 "a:firstline, a:lastlineが取れるようになったらrangeと共にそっちを使う
 "visual modeだけでなくnormal modeの.,.+5call COMMANDもそれでいける
 function! comment#toggle(method, mode)
+    if b:comment_char ==# ''
+      echo 'Comment char is empty.'
+      return
+    endif
+
     let l:first_expr = a:mode == 'n' ? '.' : "'<"
     let l:last_expr = a:mode == 'n' ? '.' : "'>"
     let [l:first] = getpos(l:first_expr)[1:1]

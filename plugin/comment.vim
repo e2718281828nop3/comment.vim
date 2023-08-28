@@ -8,6 +8,9 @@ let g:loaded_comment= 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+"初期化
+let b:comment_char = ''
+
 augroup comment
     autocmd!
     autocmd FileType vim let b:comment_char = '"'
