@@ -12,7 +12,7 @@ set cpo&vim
 "TODO comment#switch()
 "a:firstline, a:lastlineが取れるようになったらrangeと共にそっちを使う
 "visual modeだけでなくnormal modeの.,.+5call COMMANDもそれでいける
-function! comment#toggle(method, mode)
+function! comment#switch(method, mode)
     let l:first_expr = a:mode == 'n' ? '.' : "'<"
     let l:last_expr = a:mode == 'n' ? '.' : "'>"
     let [l:first] = getpos(l:first_expr)[1:1]
@@ -20,12 +20,12 @@ function! comment#toggle(method, mode)
 
     if a:method ==# 'out'
         for n in range(l:first, l:last)
-            call setline(n, b:comment_char . getline(n))
+            call setline(n, b:comment_out_line . getline(n))
         endfor
     endif
 
     if a:method ==# 'in'
-        let pattern = '^\(\s*\)' . b:comment_char
+        let pattern = '^\(\s*\)' . b:comment_out_line
 
         for n in range(l:first, l:last)
             let sub = substitute(getline(n), pattern, '\1', '')
